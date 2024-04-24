@@ -1,5 +1,6 @@
 package cn.itcast.mq.listener;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.Exchange;
 import org.springframework.amqp.rabbit.annotation.Queue;
@@ -18,6 +19,11 @@ public class SpringRabbitListener {
     //     System.out.println("消费者接收到simple.queue的消息：【" + msg + "】");
     // }
 
+    /**
+     * 简单队列模式
+     * @param msg
+     * @throws InterruptedException
+     */
     @RabbitListener(queues = "simple.queue")
     public void listenWorkQueue1(String msg) throws InterruptedException {
         System.out.println("消费者1接收到消息：【" + msg + "】" + LocalTime.now());
@@ -30,6 +36,10 @@ public class SpringRabbitListener {
         Thread.sleep(200);
     }
 
+    /**
+     * Fanout模式
+     * @param msg
+     */
     @RabbitListener(queues = "fanout.queue1")
     public void listenFanoutQueue1(String msg) {
         System.out.println("消费者接收到fanout.queue1的消息：【" + msg + "】");
@@ -39,6 +49,10 @@ public class SpringRabbitListener {
         System.out.println("消费者接收到fanout.queue2的消息：【" + msg + "】");
     }
 
+    /**
+     * Direct模式
+     * @param msg
+     */
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(name = "direct.queue1"),
             exchange = @Exchange(name = "itcast.direct", type = ExchangeTypes.DIRECT),
@@ -63,7 +77,7 @@ public class SpringRabbitListener {
             key = "china.#"
     ))
     public void listenTopicQueue1(String msg){
-        System.out.println("消费者接收到topic.queue1的消息：【" + msg + "】");
+        System.out.println("china.#消费者接收到topic.queue1的消息：【" + msg + "】");
     }
 
     @RabbitListener(bindings = @QueueBinding(
@@ -72,7 +86,7 @@ public class SpringRabbitListener {
             key = "#.news"
     ))
     public void listenTopicQueue2(String msg){
-        System.out.println("消费者接收到topic.queue2的消息：【" + msg + "】");
+        System.out.println("#.news消费者接收到topic.queue2的消息：【" + msg + "】");
     }
 
     @RabbitListener(queues = "object.queue")

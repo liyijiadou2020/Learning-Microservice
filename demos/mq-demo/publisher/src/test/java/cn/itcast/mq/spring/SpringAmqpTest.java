@@ -13,13 +13,21 @@ public class SpringAmqpTest {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
+    /**
+     * 测试简单队列模型
+     */
     @Test
     public void testSendMessage2SimpleQueue() {
         String queueName = "simple.queue";
-        String message = "hello, spring amqp!";
+        String message = "Hello, spring amqp!";
         rabbitTemplate.convertAndSend(queueName, message);
     }
 
+    /**
+     * 测试工作模型
+     *
+     * @throws InterruptedException
+     */
     @Test
     public void testSendMessage2WorkQueue() throws InterruptedException {
         String queueName = "simple.queue";
@@ -30,6 +38,9 @@ public class SpringAmqpTest {
         }
     }
 
+    /**
+     * 测试发布/订阅模型
+     */
     @Test
     public void testSendFanoutExchange() {
         // 交换机名称
@@ -40,6 +51,9 @@ public class SpringAmqpTest {
         rabbitTemplate.convertAndSend(exchangeName, "", message);
     }
 
+    /**
+     * 测试 Direct 模式
+     */
     @Test
     public void testSendDirectExchange() {
         // 交换机名称
@@ -48,8 +62,13 @@ public class SpringAmqpTest {
         String message = "hello, red!";
         // 发送消息
         rabbitTemplate.convertAndSend(exchangeName, "red", message);
+        rabbitTemplate.convertAndSend(exchangeName, "yellow", "Hello yellow!");
+        rabbitTemplate.convertAndSend(exchangeName, "blue", "Hello blue!");
     }
 
+    /**
+     * 测试通配模式
+     */
     @Test
     public void testSendTopicExchange() {
         // 交换机名称
