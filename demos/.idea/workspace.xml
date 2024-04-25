@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5686cc5c-7405-427f-96b1-8367923d4865" name="Changes" comment="">
+    <list default="true" id="5686cc5c-7405-427f-96b1-8367923d4865" name="Changes" comment="添加RabbitMQ的学习代码">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mq-demo/consumer/src/main/java/cn/itcast/mq/ConsumerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/mq-demo/consumer/src/main/java/cn/itcast/mq/ConsumerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mq-demo/consumer/src/main/java/cn/itcast/mq/config/FanoutConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/mq-demo/consumer/src/main/java/cn/itcast/mq/config/FanoutConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mq-demo/consumer/src/main/java/cn/itcast/mq/listener/SpringRabbitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/mq-demo/consumer/src/main/java/cn/itcast/mq/listener/SpringRabbitListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mq-demo/consumer/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/mq-demo/consumer/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mq-demo/consumer/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/mq-demo/consumer/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mq-demo/publisher/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/mq-demo/publisher/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mq-demo/publisher/src/test/java/cn/itcast/mq/spring/SpringAmqpTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/mq-demo/publisher/src/test/java/cn/itcast/mq/spring/SpringAmqpTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mq-demo/publisher/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/mq-demo/publisher/target/classes/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,12 +50,12 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/source/lessons/200-Microservice/demos",
+    "last_opened_file_path": "D:/source/lessons/200-Microservice/demos/hotel-demo/pom.xml",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Problems",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.23037975",
     "settings.editor.selected.configurable": "MavenSettings",
@@ -78,80 +74,83 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SpringAmqpTest.testSendDirectExchange">
-    <configuration name="SpringAmqpTest.testSendDirectExchange" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="publisher" />
+  <component name="RunManager" selected="JUnit.HotelDocumentTest.testBulkRequest">
+    <configuration name="HotelDocumentTest.testAddDocument" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.itcast.mq.spring.*" />
+          <option name="PATTERN" value="cn.itcast.hotel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cn.itcast.mq.spring" />
-      <option name="MAIN_CLASS_NAME" value="cn.itcast.mq.spring.SpringAmqpTest" />
-      <option name="METHOD_NAME" value="testSendDirectExchange" />
+      <option name="PACKAGE_NAME" value="cn.itcast.hotel" />
+      <option name="MAIN_CLASS_NAME" value="cn.itcast.hotel.HotelDocumentTest" />
+      <option name="METHOD_NAME" value="testAddDocument" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpringAmqpTest.testSendFanoutExchange" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="publisher" />
+    <configuration name="HotelDocumentTest.testBulkRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.itcast.mq.spring.*" />
+          <option name="PATTERN" value="cn.itcast.hotel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cn.itcast.mq.spring" />
-      <option name="MAIN_CLASS_NAME" value="cn.itcast.mq.spring.SpringAmqpTest" />
-      <option name="METHOD_NAME" value="testSendFanoutExchange" />
+      <option name="PACKAGE_NAME" value="cn.itcast.hotel" />
+      <option name="MAIN_CLASS_NAME" value="cn.itcast.hotel.HotelDocumentTest" />
+      <option name="METHOD_NAME" value="testBulkRequest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpringAmqpTest.testSendMessage2WorkQueue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="publisher" />
+    <configuration name="HotelDocumentTest.testDeleteDocumentById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.itcast.mq.spring.*" />
+          <option name="PATTERN" value="cn.itcast.hotel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cn.itcast.mq.spring" />
-      <option name="MAIN_CLASS_NAME" value="cn.itcast.mq.spring.SpringAmqpTest" />
-      <option name="METHOD_NAME" value="testSendMessage2WorkQueue" />
+      <option name="PACKAGE_NAME" value="cn.itcast.hotel" />
+      <option name="MAIN_CLASS_NAME" value="cn.itcast.hotel.HotelDocumentTest" />
+      <option name="METHOD_NAME" value="testDeleteDocumentById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpringRabbitListener.listenSimpleQueue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="consumer" />
+    <configuration name="HotelDocumentTest.testGetDocumentById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.itcast.mq.listener.*" />
+          <option name="PATTERN" value="cn.itcast.hotel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cn.itcast.mq.listener" />
-      <option name="MAIN_CLASS_NAME" value="cn.itcast.mq.listener.SpringRabbitListener" />
-      <option name="METHOD_NAME" value="listenSimpleQueue(java.lang.String)" />
+      <option name="PACKAGE_NAME" value="cn.itcast.hotel" />
+      <option name="MAIN_CLASS_NAME" value="cn.itcast.hotel.HotelDocumentTest" />
+      <option name="METHOD_NAME" value="testGetDocumentById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConsumerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="consumer" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.itcast.mq.ConsumerApplication" />
+    <configuration name="HotelDocumentTest.testUpdateById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.itcast.mq.*" />
+          <option name="PATTERN" value="cn.itcast.hotel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="cn.itcast.hotel" />
+      <option name="MAIN_CLASS_NAME" value="cn.itcast.hotel.HotelDocumentTest" />
+      <option name="METHOD_NAME" value="testUpdateById" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -159,6 +158,13 @@
     <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="cn.itcast.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HotelDemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="hotel-demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.itcast.hotel.HotelDemoApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SpringAmqpTest.testSendDirectExchange" />
-        <item itemvalue="Spring Boot.ConsumerApplication" />
-        <item itemvalue="JUnit.SpringAmqpTest.testSendFanoutExchange" />
-        <item itemvalue="JUnit.SpringAmqpTest.testSendMessage2WorkQueue" />
-        <item itemvalue="JUnit.SpringRabbitListener.listenSimpleQueue" />
+        <item itemvalue="JUnit.HotelDocumentTest.testBulkRequest" />
+        <item itemvalue="JUnit.HotelDocumentTest.testUpdateById" />
+        <item itemvalue="JUnit.HotelDocumentTest.testAddDocument" />
+        <item itemvalue="JUnit.HotelDocumentTest.testDeleteDocumentById" />
+        <item itemvalue="JUnit.HotelDocumentTest.testGetDocumentById" />
       </list>
     </recent_temporary>
   </component>
@@ -197,11 +203,26 @@
       <updated>1713792603629</updated>
       <workItem from="1713792604637" duration="1843000" />
       <workItem from="1713948842028" duration="7000" />
-      <workItem from="1713953319185" duration="3909000" />
+      <workItem from="1713953319185" duration="3967000" />
+      <workItem from="1714051841257" duration="340000" />
+      <workItem from="1714052194128" duration="1674000" />
     </task>
+    <task id="LOCAL-00001" summary="添加RabbitMQ的学习代码">
+      <option name="closed" value="true" />
+      <created>1713958266523</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713958266523</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="添加RabbitMQ的学习代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加RabbitMQ的学习代码" />
   </component>
 </project>
