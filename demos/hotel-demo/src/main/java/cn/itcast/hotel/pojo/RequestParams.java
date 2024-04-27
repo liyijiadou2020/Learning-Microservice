@@ -54,4 +54,19 @@ public class RequestParams {
      */
     private Integer maxPrice;
 
+    /**
+     * 我的地理位置
+     */
+    private String location;
+
+    /**
+     * 酒店图片uri
+     */
+    private String pic;
+
+    /**
+     * 距离值
+     */
+    private Object distance;
+
 }

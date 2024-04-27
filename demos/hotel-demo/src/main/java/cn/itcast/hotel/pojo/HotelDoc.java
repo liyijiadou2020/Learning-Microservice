@@ -17,6 +17,10 @@ public class HotelDoc {
     private String business;
     private String location;
     private String pic;
+    /**
+     * 用来排序的距离
+     */
+    private Object distance;
 
     public HotelDoc(Hotel hotel) {
         this.id = hotel.getId();
