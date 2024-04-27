@@ -21,6 +21,11 @@ public class HotelDoc {
      * 用来排序的距离
      */
     private Object distance;
+    /**
+     * 广告标记
+     */
+    private Boolean isAD;
+
 
     public HotelDoc(Hotel hotel) {
         this.id = hotel.getId();

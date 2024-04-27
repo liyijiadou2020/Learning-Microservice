@@ -20,6 +20,8 @@ import org.elasticsearch.common.unit.DistanceUnit;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.MatchAllQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
+import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.sort.SortBuilders;
@@ -116,8 +118,18 @@ public class HotelService extends ServiceImpl<HotelMapper, Hotel> implements IHo
                     .lte(params.getMaxPrice()));
         }
 
+        // 5. 算分控制（广告加权）
+        FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery(
+                boolQuery,
+                new FunctionScoreQueryBuilder.FilterFunctionBuilder[]{
+                        new FunctionScoreQueryBuilder.FilterFunctionBuilder(
+                                QueryBuilders.termQuery("isAD", true),
+                                ScoreFunctionBuilders.weightFactorFunction(10)
+                        )
+                });
+
         //     5. 放入source中
-        request.source().query(boolQuery);
+        request.source().query(functionScoreQueryBuilder);
     }
 
     /**
