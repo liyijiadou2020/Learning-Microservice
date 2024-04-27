@@ -54,12 +54,12 @@ public class HotelService extends ServiceImpl<HotelMapper, Hotel> implements IHo
             // 封装一个函数来组合多个查询条件
             buildBasicQuery(params, request);
 
-            //     2.2 分页
+            //     2.2 分页 from
             Integer page = params.getPage();
             Integer size = params.getSize();
             request.source().from((page - 1) * size).size(size);
 
-            // 2.3 排序
+            // 2.3 排序 sort
             String location = params.getLocation();
             // 由于在国外 所以 fake 了一个国内的地址
             location = "23.1, 120.385766";
@@ -89,10 +89,10 @@ public class HotelService extends ServiceImpl<HotelMapper, Hotel> implements IHo
      * @param request
      */
     private void buildBasicQuery(RequestParams params, SearchRequest request) {
-        //     1. 构建BooleanQuery
+        //     1. 构建布尔查询
         BoolQueryBuilder boolQuery = QueryBuilders.boolQuery();
 
-        //     2. 关键词搜索
+        //     2. 添加must、filter等条件
         String key = params.getKey();
         if (key == null || key.isEmpty()) {
             boolQuery.must(QueryBuilders.matchAllQuery());
@@ -100,8 +100,17 @@ public class HotelService extends ServiceImpl<HotelMapper, Hotel> implements IHo
             boolQuery.must(QueryBuilders.matchQuery("all", key));
         }
 
-        //     3. 城市、品牌、星级条件
+        //     （城市、品牌、星级条件）
         if (params.getCity() != null && !params.getCity().isEmpty()) {
+            // GET ... /hotel/_search {
+            //   "query": {
+            //     "bool": {
+            //       "filter": {
+            //         "term": {"city": "上海"}
+            //       } #filter 不参与打分
+            //     } #bool
+            //   } #query
+            // } #_search
             boolQuery.filter(QueryBuilders.termQuery("city", params.getCity()));
         }
         if (params.getBrand() != null && !params.getBrand().isEmpty()) {
@@ -111,20 +120,21 @@ public class HotelService extends ServiceImpl<HotelMapper, Hotel> implements IHo
             boolQuery.filter(QueryBuilders.termQuery("starName", params.getStarName()));
         }
 
-        //     4. 价格条件
+        //     （价格条件）
         if (params.getMinPrice() != null && params.getMaxPrice() != null) {
             boolQuery.filter(QueryBuilders.rangeQuery("price")
                     .gte(params.getMinPrice())
                     .lte(params.getMaxPrice()));
         }
 
-        // 5. 算分控制（广告加权）
+        // 3. 算分控制（广告加权）
+        // 之前用的是boolean查询，现在要改成function_score查询了
         FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery(
-                boolQuery,
-                new FunctionScoreQueryBuilder.FilterFunctionBuilder[]{
-                        new FunctionScoreQueryBuilder.FilterFunctionBuilder(
-                                QueryBuilders.termQuery("isAD", true),
-                                ScoreFunctionBuilders.weightFactorFunction(10)
+                boolQuery, // 可以将之前写的boolean查询作为原始查询条件放到query中
+                new FunctionScoreQueryBuilder.FilterFunctionBuilder[]{ // 接下来是算分函数
+                        new FunctionScoreQueryBuilder.FilterFunctionBuilder( // 算分函数1
+                                QueryBuilders.termQuery("isAD", true), // 算分函数1-term
+                                ScoreFunctionBuilders.weightFactorFunction(10) // 算分函数1-加权模式
                         )
                 });
 
