@@ -16,7 +16,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.io.IOException;
 
 import static cn.itcast.hotel.constants.HotelIndexConstants.MAPPING_TEMPLATE;
-
+/**
+ * 使用 RestHighLevelClient 查询索引库
+ */
 @SpringBootTest
 class HotelIndexTest {
 

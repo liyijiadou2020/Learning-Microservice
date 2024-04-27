@@ -5,16 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5686cc5c-7405-427f-96b1-8367923d4865" name="Changes" comment="添加RabbitMQ的学习代码">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/pojo/PageResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/pojo/RequestParams.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/web/HotelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hotel-demo/src/test/java/cn/itcast/hotel/HotelSearchTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54305113-790f-43f3-b367-4bdc57b1a43e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54305113-790f-43f3-b367-4bdc57b1a43e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/HotelDemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/HotelDemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/service/IHotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/service/IHotelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/service/impl/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/service/impl/HotelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel-demo/src/test/java/cn/itcast/hotel/HotelDocumentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/test/java/cn/itcast/hotel/HotelDocumentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel-demo/src/test/java/cn/itcast/hotel/HotelIndexTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/test/java/cn/itcast/hotel/HotelIndexTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -35,38 +48,41 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2fSRgW2Xw2IJ3QNditbTVyIPup0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/source/lessons/200-Microservice/demos/hotel-demo/pom.xml",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.23037975",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/source/lessons/200-Microservice/demos/hotel-demo/pom.xml&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.23037975&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -74,23 +90,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HotelDocumentTest.testBulkRequest">
-    <configuration name="HotelDocumentTest.testAddDocument" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hotel-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.itcast.hotel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cn.itcast.hotel" />
-      <option name="MAIN_CLASS_NAME" value="cn.itcast.hotel.HotelDocumentTest" />
-      <option name="METHOD_NAME" value="testAddDocument" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.HotelDemoApplication">
     <configuration name="HotelDocumentTest.testBulkRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hotel-demo" />
       <extension name="coverage">
@@ -102,22 +102,6 @@
       <option name="PACKAGE_NAME" value="cn.itcast.hotel" />
       <option name="MAIN_CLASS_NAME" value="cn.itcast.hotel.HotelDocumentTest" />
       <option name="METHOD_NAME" value="testBulkRequest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HotelDocumentTest.testDeleteDocumentById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hotel-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.itcast.hotel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cn.itcast.hotel" />
-      <option name="MAIN_CLASS_NAME" value="cn.itcast.hotel.HotelDocumentTest" />
-      <option name="METHOD_NAME" value="testDeleteDocumentById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -155,6 +139,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HotelSearchTest.testMatchAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.itcast.hotel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.itcast.hotel" />
+      <option name="MAIN_CLASS_NAME" value="cn.itcast.hotel.HotelSearchTest" />
+      <option name="METHOD_NAME" value="testMatchAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HotelSearchTest.testMatchAllAndParse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.itcast.hotel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.itcast.hotel" />
+      <option name="MAIN_CLASS_NAME" value="cn.itcast.hotel.HotelSearchTest" />
+      <option name="METHOD_NAME" value="testMatchAllAndParse" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="cn.itcast.gateway.GatewayApplication" />
@@ -185,11 +201,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HotelSearchTest.testMatchAllAndParse" />
+        <item itemvalue="JUnit.HotelSearchTest.testMatchAll" />
+        <item itemvalue="JUnit.HotelDocumentTest.testGetDocumentById" />
         <item itemvalue="JUnit.HotelDocumentTest.testBulkRequest" />
         <item itemvalue="JUnit.HotelDocumentTest.testUpdateById" />
-        <item itemvalue="JUnit.HotelDocumentTest.testAddDocument" />
-        <item itemvalue="JUnit.HotelDocumentTest.testDeleteDocumentById" />
-        <item itemvalue="JUnit.HotelDocumentTest.testGetDocumentById" />
       </list>
     </recent_temporary>
   </component>
@@ -206,6 +222,9 @@
       <workItem from="1713953319185" duration="3967000" />
       <workItem from="1714051841257" duration="340000" />
       <workItem from="1714052194128" duration="1674000" />
+      <workItem from="1714123175008" duration="3860000" />
+      <workItem from="1714142716340" duration="10000" />
+      <workItem from="1714201279644" duration="2092000" />
     </task>
     <task id="LOCAL-00001" summary="添加RabbitMQ的学习代码">
       <option name="closed" value="true" />

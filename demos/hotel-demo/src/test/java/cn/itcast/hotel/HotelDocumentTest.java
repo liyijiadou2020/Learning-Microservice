@@ -23,7 +23,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
 import java.util.List;
-
+/**
+ * 使用 RestHighLevelClient 查询文档
+ */
 @SpringBootTest
 class HotelDocumentTest {
 
