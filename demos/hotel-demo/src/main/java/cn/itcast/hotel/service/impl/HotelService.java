@@ -8,6 +8,7 @@ import cn.itcast.hotel.pojo.RequestParams;
 import cn.itcast.hotel.service.IHotelService;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.TotalHits;
 import org.elasticsearch.action.search.SearchRequest;
@@ -24,6 +25,10 @@ import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
 import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.aggregations.Aggregation;
+import org.elasticsearch.search.aggregations.AggregationBuilders;
+import org.elasticsearch.search.aggregations.Aggregations;
+import org.elasticsearch.search.aggregations.bucket.terms.Terms;
 import org.elasticsearch.search.sort.SortBuilders;
 import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +36,9 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class HotelService extends ServiceImpl<HotelMapper, Hotel> implements IHotelService {
@@ -81,12 +88,94 @@ public class HotelService extends ServiceImpl<HotelMapper, Hotel> implements IHo
     }
 
     /**
+     * 对搜索结果做聚合，限定显示的城市、星级、品牌列表
+     *
+     * @param params
+     * @return
+     */
+    @Override
+    public Map<String, List<String>> filters(RequestParams params) {
+        try {
+            // 1.准备Request
+            SearchRequest request = new SearchRequest("hotel");
+            // 2.准备DSL
+            // 2.1.query
+            buildBasicQuery(params, request);
+            // 2.2.设置size
+            request.source().size(0);
+            // 2.3.聚合
+            buildAggregation(request);
+            // 3.发出请求
+            SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+            // 4.解析结果
+            Map<String, List<String>> result = new HashMap<>();
+            Aggregations aggregations = response.getAggregations();
+            // 4.1.根据品牌名称，获取品牌结果
+            List<String> brandList = getAggByName(aggregations, "brandAgg");
+            result.put("品牌", brandList);
+            // 4.2.根据品牌名称，获取品牌结果
+            List<String> cityList = getAggByName(aggregations, "cityAgg");
+            result.put("城市", cityList);
+            // 4.3.根据品牌名称，获取品牌结果
+            List<String> starList = getAggByName(aggregations, "starAgg");
+            result.put("星级", starList);
+
+            return result;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 根据聚合的名称获取聚合结果
+     * @param aggregations
+     * @param aggName
+     * @return
+     */
+    private List<String> getAggByName(Aggregations aggregations, String aggName) {
+        // 4.1.根据聚合名称获取聚合结果
+        Terms brandTerms = aggregations.get(aggName);
+        // 4.2.获取buckets
+        List<? extends Terms.Bucket> buckets = brandTerms.getBuckets();
+        // 4.3.遍历
+        List<String> brandList = new ArrayList<>();
+        for (Terms.Bucket bucket : buckets) {
+            // 4.4.获取key
+            String key = bucket.getKeyAsString();
+            brandList.add(key);
+        }
+        return brandList;
+    }
+
+    /**
+     * 处理搜索结果的聚合
+     * @param request
+     */
+    private void buildAggregation(SearchRequest request) {
+        request.source().aggregation(AggregationBuilders
+                .terms("brandAgg")
+                .field("brand")
+                .size(100)
+        );
+        request.source().aggregation(AggregationBuilders
+                .terms("cityAgg")
+                .field("city")
+                .size(100)
+        );
+        request.source().aggregation(AggregationBuilders
+                .terms("starAgg")
+                .field("starName")
+                .size(100)
+        );
+    }
+
+    /**
      * 组合多个查询条件
      * - 关键词搜索放到must中，参与算分（品牌，星级，城市）
      * - 其他过滤条件放到filter中，不参与算分（价格）
      *
-     * @param params
-     * @param request
+     * @param params 搜索关键字、城市、品牌、星级条件、价格条件，同时考虑广告的加权
+     * @param request 搜索请求
      */
     private void buildBasicQuery(RequestParams params, SearchRequest request) {
         //     1. 构建布尔查询
@@ -102,6 +191,7 @@ public class HotelService extends ServiceImpl<HotelMapper, Hotel> implements IHo
 
         //     （城市、品牌、星级条件）
         if (params.getCity() != null && !params.getCity().isEmpty()) {
+            // 对应的DSL语句：
             // GET ... /hotel/_search {
             //   "query": {
             //     "bool": {

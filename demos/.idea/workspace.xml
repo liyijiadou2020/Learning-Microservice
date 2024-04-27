@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5686cc5c-7405-427f-96b1-8367923d4865" name="Changes" comment="实现酒店结果广告置顶加权功能">
+    <list default="true" id="5686cc5c-7405-427f-96b1-8367923d4865" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/JavaSceneConfigState.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JavaSceneConfigState.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/service/IHotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/service/IHotelService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/service/impl/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/service/impl/HotelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/web/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/web/HotelController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +237,7 @@
       <workItem from="1714052194128" duration="1674000" />
       <workItem from="1714123175008" duration="3860000" />
       <workItem from="1714142716340" duration="10000" />
-      <workItem from="1714201279644" duration="7469000" />
+      <workItem from="1714201279644" duration="9825000" />
     </task>
     <task id="LOCAL-00001" summary="添加RabbitMQ的学习代码">
       <option name="closed" value="true" />
@@ -276,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714209884920</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update">
+      <option name="closed" value="true" />
+      <created>1714221743795</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714221743795</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,6 +299,7 @@
     <MESSAGE value="实现酒店结果过滤功能" />
     <MESSAGE value="实现酒店结果距离排序功能" />
     <MESSAGE value="实现酒店结果广告置顶加权功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现酒店结果广告置顶加权功能" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>

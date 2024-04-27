@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.Map;
 /**
  * 酒店controller
  *
@@ -29,5 +32,14 @@ public class HotelController {
     public PageResult search(@RequestBody RequestParams params) {
         return hotelService.search(params);
     }
+
+    @PostMapping("/filters")
+    public Map<String, List<String>> getFilters(@RequestBody RequestParams params) {
+        return hotelService.filters(params);
+    }
+
+    //     TODO 自动补全查询
+
+    //     TODO 搭建集群，数据同步
 
 }
