@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5686cc5c-7405-427f-96b1-8367923d4865" name="Changes" comment="添加RabbitMQ的学习代码">
-      <change afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/pojo/PageResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/pojo/RequestParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/web/HotelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel-demo/src/test/java/cn/itcast/hotel/HotelSearchTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54305113-790f-43f3-b367-4bdc57b1a43e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54305113-790f-43f3-b367-4bdc57b1a43e.xml" afterDir="false" />
+    <list default="true" id="5686cc5c-7405-427f-96b1-8367923d4865" name="Changes" comment="实现了全文检索和分页的功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/HotelDemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/HotelDemoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/service/IHotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/service/IHotelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/pojo/RequestParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/pojo/RequestParams.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/service/impl/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/main/java/cn/itcast/hotel/service/impl/HotelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel-demo/src/test/java/cn/itcast/hotel/HotelDocumentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/test/java/cn/itcast/hotel/HotelDocumentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel-demo/src/test/java/cn/itcast/hotel/HotelIndexTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-demo/src/test/java/cn/itcast/hotel/HotelIndexTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +23,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "liyijiadou2020"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="c3ddf641-00e0-485d-abe2-00973cd66439" />
+        <option name="url" value="git@github.com:liyijiadou2020/Learning-Microservice.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -224,7 +230,7 @@
       <workItem from="1714052194128" duration="1674000" />
       <workItem from="1714123175008" duration="3860000" />
       <workItem from="1714142716340" duration="10000" />
-      <workItem from="1714201279644" duration="2092000" />
+      <workItem from="1714201279644" duration="3278000" />
     </task>
     <task id="LOCAL-00001" summary="添加RabbitMQ的学习代码">
       <option name="closed" value="true" />
@@ -234,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713958266523</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="实现了全文检索和分页的功能">
+      <option name="closed" value="true" />
+      <created>1714203508911</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714203508911</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +256,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加RabbitMQ的学习代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加RabbitMQ的学习代码" />
+    <MESSAGE value="实现了全文检索和分页的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现了全文检索和分页的功能" />
   </component>
 </project>

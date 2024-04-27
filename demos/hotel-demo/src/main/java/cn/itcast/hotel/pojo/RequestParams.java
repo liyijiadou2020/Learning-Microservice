@@ -29,4 +29,29 @@ public class RequestParams {
      */
     private String sortBy;
 
+    /**
+     * 城市筛选条件
+     */
+    private String city;
+
+    /**
+     * 品牌筛选条件
+     */
+    private String brand;
+
+    /**
+     * 星级筛选条件
+     */
+    private String starName;
+
+    /**
+     * 最低价格筛选条件
+     */
+    private Integer minPrice;
+
+    /**
+     * 最高价格筛选条件
+     */
+    private Integer maxPrice;
+
 }

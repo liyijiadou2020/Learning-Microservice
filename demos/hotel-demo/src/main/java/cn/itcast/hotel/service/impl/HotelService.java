@@ -15,6 +15,7 @@ import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.MatchAllQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
@@ -44,12 +45,9 @@ public class HotelService extends ServiceImpl<HotelMapper, Hotel> implements IHo
             SearchRequest request = new SearchRequest("hotel");
             //     2. 准备DSL
             //     2.1 query
-            String key = params.getKey();
-            if (key == null || key.isEmpty()) {
-                request.source().query(QueryBuilders.matchAllQuery());
-            } else {
-                request.source().query(QueryBuilders.matchQuery("all", key));
-            }
+            // 封装一个函数来组合多个查询条件
+            buildBasicQuery(params, request);
+
             //     2.2 分页
             Integer page = params.getPage();
             Integer size = params.getSize();
@@ -65,19 +63,61 @@ public class HotelService extends ServiceImpl<HotelMapper, Hotel> implements IHo
     }
 
     /**
+     * 组合多个查询条件
+     * - 关键词搜索放到must中，参与算分（品牌，星级，城市）
+     * - 其他过滤条件放到filter中，不参与算分（价格）
+     *
+     * @param params
+     * @param request
+     */
+    private void buildBasicQuery(RequestParams params, SearchRequest request) {
+        //     1. 构建BooleanQuery
+        BoolQueryBuilder boolQuery = QueryBuilders.boolQuery();
+
+        //     2. 关键词搜索
+        String key = params.getKey();
+        if (key == null || key.isEmpty()) {
+            boolQuery.must(QueryBuilders.matchAllQuery());
+        } else {
+            boolQuery.must(QueryBuilders.matchQuery("all", key));
+        }
+
+        //     3. 城市、品牌、星级条件
+        if (params.getCity() != null && !params.getCity().isEmpty()) {
+            boolQuery.filter(QueryBuilders.termQuery("city", params.getCity()));
+        }
+        if (params.getBrand() != null && !params.getBrand().isEmpty()) {
+            boolQuery.filter(QueryBuilders.termQuery("brand", params.getBrand()));
+        }
+        if (params.getStarName() != null && !params.getStarName().isEmpty()) {
+            boolQuery.filter(QueryBuilders.termQuery("starName", params.getStarName()));
+        }
+
+        //     4. 价格条件
+        if (params.getMinPrice() != null && params.getMaxPrice() != null) {
+            boolQuery.filter(QueryBuilders.rangeQuery("price")
+                    .gte(params.getMinPrice())
+                    .lte(params.getMaxPrice()));
+        }
+
+        //     5. 放入source中
+        request.source().query(boolQuery);
+    }
+
+    /**
      * 抽取出响应的每一条文档进行反序列化成对象，返回对象列表
+     *
      * @param response
      * @return 对象列表和总结果数封装成的PageResult
      */
     private PageResult handleResponse(SearchResponse response) {
         SearchHits searchHits = response.getHits();
         long totalHits = searchHits.getTotalHits().value;
-        System.out.println("结果总数" + totalHits);
         SearchHit[] hits = searchHits.getHits();
         List<HotelDoc> hotels = new ArrayList<>();
         for (SearchHit hit : hits) {
             String json = hit.getSourceAsString();
-        //     反序列化
+            //     反序列化
             HotelDoc hotelDoc = JSON.parseObject(json, HotelDoc.class);
             hotels.add(hotelDoc);
         }
